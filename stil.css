@@ -1,33 +1,67 @@
-/* Sayfanın sağa kaymasını kesin olarak engeller */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
+/* 1. TÜM SAYFAYI EKRANA SABİTLE */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Mobilde resimlerin dışarı taşmasını önler */
-img {
+html, body {
+    width: 100%;
     max-width: 100%;
-    height: auto;
+    overflow-x: hidden; /* Sağa kaymayı imkansız hale getirir */
+    -webkit-overflow-scrolling: touch;
 }
 
+/* 2. GENEL GÖVDE AYARLARI */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
 
-
-
+/* 3. MOBİL UYUMLULUK (EN ÖNEMLİ KISIM) */
 @media (max-width: 700px) {
-  .block {
-    width: 92% !important; /* Kenarlarda çok az boşluk bırakmak daha modern durur */
-    margin: 0 auto;
-    padding: 10px; /* İçerik kenarlara yapışmasın */
-  }
-  
-  /* Eğer menü butonların çok genişse yazı boyutunu küçültelim */
-  nav a, .menu-item {
-    font-size: 11px; 
-    padding: 4px;
-  }
+    .block {
+        width: 92% !important;
+        margin: 10px auto !important;
+        float: none !important;
+    }
+
+    /* Menü butonlarını alt alta veya küçük yap */
+    nav, .ust-baslik, .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    nav a, .menu-item {
+        font-size: 12px !important;
+        padding: 8px !important;
+        display: inline-block;
+    }
+
+    /* Resimlerin taşmasını engelle */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .baslik {
+        font-size: 14px !important;
+        text-align: center;
+        padding: 10px;
+    }
 }
+
+/* 4. DİĞER ÖZEL STİLLERİN (BURADAN SONRA EKLEYEBİLİRSİN) */
+.block {
+    background-color: #fff;
+    padding: 20px;
+}
+
 
 
 
@@ -271,6 +305,7 @@ color: #000;
 .isim { font-size: 14px; margin: 5px 0; font-weight: bold; }
 
 .bolum { font-size: 10px; margin: 0; opacity: 0.8; }
+
 
 
 
