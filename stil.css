@@ -1,4 +1,4 @@
-/* 1. TÜM SAYFAYI RESETLE (Sola/Sağa kaymayı bitirir) */
+/* 1. GENEL RESET VE KAYMA ENGELLEME */
 * {
     margin: 0;
     padding: 0;
@@ -7,57 +7,93 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* Sağdaki beyaz boşluğu engeller */
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
 }
 
-/* 2. MENÜ ŞERİDİ (Arka plan boydan boya) */
+/* 2. NAVİGASYON (Ortalama ve Arka Plan) */
 nav {
     background-color: #333;
     width: 100%;
-    display: block; /* Flex çakışmasını önlemek için block yaptık */
-    text-align: center; /* İÇİNDEKİ HER ŞEYİ MERKEZE ÇİVİLER */
+    display: flex;
+    justify-content: center; /* Bilgisayarda menüyü ORTALAR */
+    position: relative;
+    z-index: 1000;
 }
 
-/* 3. LİSTE YAPISI */
+/* 3. MENÜ LİSTESİ */
 nav ul {
     list-style: none;
-    display: inline-flex; /* Sadece içeriği kadar yer kaplar ve ORTALANIR */
-    flex-direction: row;
-    flex-wrap: nowrap; /* Mobilde asla alt alta geçmez */
-    margin: 0 auto;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-/* 4. BİLGİSAYARDAKİ GÖRÜNÜM (Büyük ve Ortada) */
+/* 4. ANA LİNKLER (Masaüstünde Büyük) */
+nav ul li {
+    position: relative; /* Dropdown'ın buna göre açılması için */
+}
+
 nav ul li a {
     display: block;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 24px; /* İstediğin büyük font */
-    padding: 20px 30px; /* Araları açık ve geniş */
-    white-space: nowrap; 
-    transition: 0.2s;
+    font-size: 20px; /* Bilgisayarda büyük görünüm */
+    padding: 20px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
 }
 
-nav ul li a:hover {
+/* 5. DROPDOWN (AÇILIR MENÜ) AYARLARI */
+nav ul li ul {
+    display: none; /* Başlangıçta gizli */
+    position: absolute;
+    top: 100%;
+    left: 0;
     background-color: #444;
+    min-width: 200px;
+    flex-direction: column; /* Dropdown içindekiler alt alta */
 }
 
-/* 5. MOBİL GÖRÜNÜM (Yan yana ve sığacak boyutta) */
+nav ul li:hover > ul {
+    display: flex; /* Üstüne gelince açılır */
+}
+
+nav ul li ul li a {
+    font-size: 16px; /* Dropdown içindeki yazılar biraz daha küçük olsun */
+    padding: 12px 20px;
+    border-bottom: 1px solid #555;
+}
+
+/* 6. MOBİL UYUMLULUK (768px Altı) */
 @media screen and (max-width: 768px) {
     nav ul li a {
-        font-size: 14px; /* Sığması için küçüldü */
-        padding: 15px 10px; /* Boşluklar daraldı ki ekran dışına taşmasın */
+        font-size: 14px; /* Mobilde sığması için font küçüldü */
+        padding: 15px 10px; /* Boşluklar daraldı */
+    }
+
+    /* Mobilde Dropdown'un ekran dışına taşmasını engelle */
+    nav ul li ul {
+        min-width: 150px;
+    }
+    
+    nav ul li ul li a {
+        font-size: 13px;
     }
 }
 
-/* Çok küçük telefonlar için emniyet kemeri */
-@media screen and (max-width: 360px) {
+/* Çok küçük telefonlar için son dokunuş */
+@media screen and (max-width: 400px) {
     nav ul li a {
         font-size: 12px;
         padding: 12px 6px;
     }
 }
+
+
+
+
 
 
 /* GENEL */
@@ -299,6 +335,7 @@ color: #000;
 .isim { font-size: 14px; margin: 5px 0; font-weight: bold; }
 
 .bolum { font-size: 10px; margin: 0; opacity: 0.8; }
+
 
 
 
