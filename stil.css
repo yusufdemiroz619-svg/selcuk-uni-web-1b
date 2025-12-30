@@ -1,14 +1,31 @@
+/* Sayfanın sağa kaymasını kesin olarak engeller */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobilde resimlerin dışarı taşmasını önler */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
 @media (max-width: 700px) {
   .block {
-    width: 92%; /* Kenarlarda çok az boşluk bırakmak daha modern durur */
+    width: 92% !important; /* Kenarlarda çok az boşluk bırakmak daha modern durur */
     margin: 0 auto;
     padding: 10px; /* İçerik kenarlara yapışmasın */
   }
   
   /* Eğer menü butonların çok genişse yazı boyutunu küçültelim */
   nav a, .menu-item {
-    font-size: 12px; 
-    padding: 5px;
+    font-size: 11px; 
+    padding: 4px;
   }
 }
 
@@ -254,6 +271,7 @@ color: #000;
 .isim { font-size: 14px; margin: 5px 0; font-weight: bold; }
 
 .bolum { font-size: 10px; margin: 0; opacity: 0.8; }
+
 
 
 
