@@ -1,57 +1,65 @@
-/* 1. TÜM CİHAZLAR İÇİN ORTAK AYARLAR */
+/* 1. TEMEL AYARLAR (Tüm cihazlar için) */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* Sağa kaymayı her yerde engeller */
+    box-sizing: border-box; /* Tasarımın sağa kaymasını engelleyen en kritik kod */
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
-/* 2. BİLGİSAYAR (MASAÜSTÜ) GÖRÜNÜMÜ */
-.block {
-    width: 1100px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
+/* 2. MASAÜSTÜ MENÜ (Varsayılan Görünüm) */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Menüyü ortalar */
+    background-color: #333; /* Örnek renk */
 }
 
-/* BİLGİSAYARDAKİ LİNKLERİ BURADA BÜYÜTÜYORUZ */
-nav a, .menu-item {
-    font-size: 18px; /* Bilgisayarda daha okunaklı ve büyük durur */
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-    padding: 10px 15px;
+nav ul li a {
     display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    /* İSTEDİĞİN BÜYÜKLÜK AYARI BURADA */
+    font-size: 24px; 
+    padding: 20px 30px;
+    transition: 0.3s;
 }
 
-/* 3. MOBİL (TELEFON) GÖRÜNÜMÜ */
-@media (max-width: 700px) {
-    .block {
-        width: 95% !important;
-        margin: 10px auto !important;
-    }
-
-    /* MOBİLDE LİNKLERİ KÜÇÜK TUTUYORUZ (SIĞMASI İÇİN) */
-    nav a, .menu-item {
-        font-size: 12px !important; /* Mobilde taşmaması için küçük kalmalı */
-        padding: 8px !important;
-    }
-
-    .baslik {
-        font-size: 14px !important;
-    }
+nav ul li a:hover {
+    background-color: #555;
 }
 
+/* 3. MOBİL AYARLAR (Ekran 768px'den küçükse devreye girer) */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Linkleri alt alta dizer */
+    }
 
+    nav ul li a {
+        /* MOBİLDE KÜÇÜLTME AYARI BURADA */
+        font-size: 16px; 
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #444; /* Linkler arasına ince çizgi */
+        width: 100%;
+    }
+
+    /* Genel kapsayıcıların mobilde taşmasını engelle */
+    .container, section, div {
+        width: 100% !important;
+        float: none !important;
+        padding: 10px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
 
 
 
@@ -296,6 +304,7 @@ color: #000;
 .isim { font-size: 14px; margin: 5px 0; font-weight: bold; }
 
 .bolum { font-size: 10px; margin: 0; opacity: 0.8; }
+
 
 
 
