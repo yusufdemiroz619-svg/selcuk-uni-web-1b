@@ -1,98 +1,49 @@
-/* 1. GENEL RESET VE KAYMA ENGELLEME */
+/* 1. TÜM CİHAZLAR İÇİN ORTAK AYARLAR */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html, body {
     width: 100%;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Sağa kaymayı her yerde engeller */
 }
 
-/* 2. NAVİGASYON (Ortalama ve Arka Plan) */
-nav {
-    background-color: #333;
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Bilgisayarda menüyü ORTALAR */
-    position: relative;
-    z-index: 1000;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
 }
 
-/* 3. MENÜ LİSTESİ */
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+/* 2. BİLGİSAYAR (MASAÜSTÜ) AYARLARI */
+/* Ekran 701px'den büyükse burası çalışır */
+.block {
+    width: 1100px; /* Bilgisayarda sabit genişlik (eski haline getirdik) */
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
 }
 
-/* 4. ANA LİNKLER (Masaüstünde Büyük) */
-nav ul li {
-    position: relative; /* Dropdown'ın buna göre açılması için */
-}
-
-nav ul li a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px; /* Bilgisayarda büyük görünüm */
-    padding: 20px 25px;
-    white-space: nowrap;
-    transition: 0.3s;
-}
-
-/* 5. DROPDOWN (AÇILIR MENÜ) AYARLARI */
-nav ul li ul {
-    display: none; /* Başlangıçta gizli */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #444;
-    min-width: 200px;
-    flex-direction: column; /* Dropdown içindekiler alt alta */
-}
-
-nav ul li:hover > ul {
-    display: flex; /* Üstüne gelince açılır */
-}
-
-nav ul li ul li a {
-    font-size: 16px; /* Dropdown içindeki yazılar biraz daha küçük olsun */
-    padding: 12px 20px;
-    border-bottom: 1px solid #555;
-}
-
-/* 6. MOBİL UYUMLULUK (768px Altı) */
-@media screen and (max-width: 768px) {
-    nav ul li a {
-        font-size: 14px; /* Mobilde sığması için font küçüldü */
-        padding: 15px 10px; /* Boşluklar daraldı */
+/* 3. MOBİL AYARLARI */
+/* Ekran 700px ve altındaysa burası çalışır */
+@media (max-width: 700px) {
+    .block {
+        width: 95% !important; /* Mobilde ekranı kapla */
+        margin: 10px auto !important;
+        padding: 15px;
     }
 
-    /* Mobilde Dropdown'un ekran dışına taşmasını engelle */
-    nav ul li ul {
-        min-width: 150px;
+    .baslik {
+        font-size: 14px !important;
+        text-align: center;
     }
-    
-    nav ul li ul li a {
-        font-size: 13px;
-    }
-}
 
-/* Çok küçük telefonlar için son dokunuş */
-@media screen and (max-width: 400px) {
-    nav ul li a {
-        font-size: 12px;
-        padding: 12px 6px;
+    nav, .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
-
-
-
 
 
 
@@ -335,6 +286,7 @@ color: #000;
 .isim { font-size: 14px; margin: 5px 0; font-weight: bold; }
 
 .bolum { font-size: 10px; margin: 0; opacity: 0.8; }
+
 
 
 
