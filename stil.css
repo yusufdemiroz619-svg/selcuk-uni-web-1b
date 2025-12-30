@@ -1,68 +1,50 @@
-/* 1. TEMEL AYARLAR (Tüm cihazlar için) */
+/* 1. TEMEL AYARLAR */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Tasarımın sağa kaymasını engelleyen en kritik kod */
+    box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
-/* 2. MASAÜSTÜ MENÜ (Varsayılan Görünüm) */
+/* 2. MASAÜSTÜ (Büyük Linkler) */
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center; /* Menüyü ortalar */
-    background-color: #333; /* Örnek renk */
+    flex-wrap: nowrap; /* Yan yana kalmaya zorlar */
+    background-color: #333;
+    padding: 0 10px;
 }
 
 nav ul li a {
-    display: inline-block;
+    display: block;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    /* İSTEDİĞİN BÜYÜKLÜK AYARI BURADA */
-    font-size: 24px; 
-    padding: 20px 30px;
-    transition: 0.3s;
+    font-size: 24px; /* Masaüstünde büyük font */
+    padding: 20px 15px; /* Linkler arası mesafe */
+    white-space: nowrap; /* Kelimelerin bölünmesini engeller */
 }
 
-nav ul li a:hover {
-    background-color: #555;
-}
-
-/* 3. MOBİL AYARLAR (Ekran 768px'den küçükse devreye girer) */
+/* 3. MOBİL (Yan Yana ve Küçük) */
 @media screen and (max-width: 768px) {
     nav ul {
-        flex-direction: column; /* Linkleri alt alta dizer */
+        justify-content: space-around; /* Linkleri ekrana eşit dağıtır */
+        padding: 0 5px;
     }
 
     nav ul li a {
-        /* MOBİLDE KÜÇÜLTME AYARI BURADA */
-        font-size: 16px; 
-        padding: 15px;
-        text-align: center;
-        border-bottom: 1px solid #444; /* Linkler arasına ince çizgi */
-        width: 100%;
-    }
-
-    /* Genel kapsayıcıların mobilde taşmasını engelle */
-    .container, section, div {
-        width: 100% !important;
-        float: none !important;
-        padding: 10px;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
+        font-size: 14px; /* Sığması için fontu küçülttük */
+        padding: 15px 8px; /* Mesafeleri daralttık */
     }
 }
 
-
-
+/* Ekran çok çok küçükse (320px gibi) hala sığmıyorsa diye */
+@media screen and (max-width: 400px) {
+    nav ul li a {
+        font-size: 12px;
+        padding: 10px 5px;
+    }
+}
 
 
 /* GENEL */
@@ -304,6 +286,7 @@ color: #000;
 .isim { font-size: 14px; margin: 5px 0; font-weight: bold; }
 
 .bolum { font-size: 10px; margin: 0; opacity: 0.8; }
+
 
 
 
