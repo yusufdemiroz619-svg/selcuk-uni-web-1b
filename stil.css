@@ -191,10 +191,11 @@ footer{
   top: 100%;
   left: 0;
   background-color: #f5f5f5;
-  min-width: 170px;
+  min-width: 130px !important;
   border: 1px solid #ccc;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   z-index: 1000;
+    padding: 8px 4px !important;
 }
 
 .dropdown-menu a {
@@ -202,6 +203,7 @@ footer{
   padding: 8px 12px;
   color: #141414;
   text-decoration: none;
+    font-size:13px;
 }
 
 .dropdown-menu a:hover {
@@ -286,6 +288,7 @@ color: #000;
 .isim { font-size: 14px; margin: 5px 0; font-weight: bold; }
 
 .bolum { font-size: 10px; margin: 0; opacity: 0.8; }
+
 
 
 
